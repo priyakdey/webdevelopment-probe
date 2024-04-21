@@ -1,9 +1,10 @@
 import './App.css';
+import StarRating from './components/StarRating';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello, World</h1>
+      <StarRating totalStars={10}/>
     </div>
   );
 }
