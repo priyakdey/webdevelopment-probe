@@ -4,16 +4,13 @@ import Star from "./Star";
 const elements = (n) => [...Array(n)];
 
 const StarRating = ({ totalStars }) => {
-	const [selected, setSelected] = useState(-1);
-
-	const handleClick = (_, idx) => setSelected(() => idx);
+	const [selectedStars, setSelectedStars] = useState(0);
 
 	return elements(totalStars).map((_, idx) => (
 		<Star 
             key={idx} 
-            idx={idx} 
-            selected={selected} 
-            handleClick={handleClick} 
+            selected={selectedStars > idx} 
+            onSelect={() => setSelectedStars(idx + 1)}
         />
 	));
 };
