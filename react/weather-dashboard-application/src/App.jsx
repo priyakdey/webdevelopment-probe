@@ -38,14 +38,9 @@ function App() {
 			.finally(() => setIsLoading(false));
 	}, [cityName]);
 
-	function handleSearch(_, searchElementRef) {
-		const cityName = searchElementRef.current.value;
+	function handleSearch(_, cityName) {
 		if (cityName.length === 0) return;
-
 		setCityName(cityName);
-
-		// TODO: Is this is a good idea to pass ref up the tree
-		searchElementRef.current.value = "";
 	}
 
 	return (
@@ -57,7 +52,9 @@ function App() {
 				<SearchBar onClick={handleSearch} />
 				{!!isLoading && <p>Loading data....</p>}
 				{!!error && (
-					<p style={{ color: "red" }}>ERROR: Could not fetch data.</p>
+					<p style={{ color: "red" }}>
+						ERROR: Could not fetch data for {cityName}.
+					</p>
 				)}
 
 				{!!data && (
@@ -89,6 +86,8 @@ function App() {
 										mintemp_f={forecast.day.mintemp_f}
 										avgtemp_c={forecast.day.avgtemp_c}
 										avgtemp_f={forecast.day.avgtemp_f}
+										weatherCondition={forecast.day.condition.text}
+										weatherIcon={forecast.day.condition.icon}
 									/>
 								);
 							})}

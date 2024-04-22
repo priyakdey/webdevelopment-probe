@@ -7,6 +7,8 @@ function WeatherCard({
 	mintemp_f,
 	avgtemp_c,
 	avgtemp_f,
+	weatherCondition,
+	weatherIcon,
 }) {
 	return (
 		<div className="WeatherCard">
@@ -23,6 +25,8 @@ function WeatherCard({
 				Avg temperature:{" "}
 				{isCelcius ? `${avgtemp_c}\u00b0C` : `${avgtemp_f}\u00b0F`}
 			</h4>
+			<img src={weatherIcon} alt={weatherCondition} />
+			<h4>Weather would be {weatherCondition}</h4>
 		</div>
 	);
 }

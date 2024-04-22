@@ -31,7 +31,7 @@ function WeatherDisplay({
 			<img src={weatherIcon} alt={weatherCondition} />
 			<h4>
 				Current temperate is{" "}
-				{isCelcius ? `${temp_c}\u00b0C` : `${temp_f}\u00b0F`} and weather is{" "}
+				{isCelcius ? `${temp_c}\u00b0C` : `${temp_f}\u00b0F`} and Weather is{" "}
 				{weatherCondition}
 			</h4>
 		</>

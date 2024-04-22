@@ -12,7 +12,13 @@ function SearchBar({ onClick }) {
 				type="text"
 				placeholder="Enter city name..."
 			/>
-			<button onClick={(event) => onClick(event, search)}>Search</button>
+			<button
+				onClick={(event) => {
+					onClick(event, search.current.value);
+				}}
+			>
+				Search
+			</button>
 		</>
 	);
 }
