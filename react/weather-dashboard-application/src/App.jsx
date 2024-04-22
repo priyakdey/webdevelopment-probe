@@ -4,10 +4,8 @@ import WeatherCard from "./components/WeatherCard";
 import "./App.css";
 import { useEffect, useState } from "react";
 
-// http://api.weatherapi.com/v1/forecast.json?key=ff074edca2384e3f926142635242204&q=kanchrapara&days=3&aqi=no&alerts=no
-
 const BASE_URL = "http://api.weatherapi.com/v1/forecast.json";
-const API_KEY = "ff074edca2384e3f926142635242204";
+const API_KEY = import.meta.env.VITE_API_KEY;
 
 function App() {
 	const [cityName, setCityName] = useState("");

@@ -27,3 +27,7 @@ An application that displays weather information for a user's chosen city.
 - WeatherDisplay.js: Component to display the weather information.
 - WeatherCard.js: (Optional) If displaying a forecast, use this smaller
   component for each day's weather.
+
+### API Key:
+
+Generate API key from [weather api](https://www.weatherapi.com/my/)
