@@ -1,3 +1,6 @@
+import Card from "react-bootstrap/Card";
+import "./WeatherDisplay.css";
+
 function WeatherDisplay({
 	isCelcius,
 	location,
@@ -10,7 +13,7 @@ function WeatherDisplay({
 	weatherIcon,
 }) {
 	const date = new Date();
-	const formatter = new Intl.DateTimeFormat("en-US", {
+	const formatter = new Intl.DateTimeFormat("en-CA", {
 		day: "2-digit",
 		month: "2-digit",
 		year: "numeric",
@@ -21,20 +24,20 @@ function WeatherDisplay({
 	const formattedDate = formatter.format(date);
 
 	return (
-		<>
-			<h2>
+		<div className="WeatherDisplay">
+			<h3>
 				{location}, {region}, {country}
-			</h2>
-			<h4>
-				{formattedDate} {tz}
-			</h4>
-			<img src={weatherIcon} alt={weatherCondition} />
-			<h4>
-				Current temperate is{" "}
-				{isCelcius ? `${temp_c}\u00b0C` : `${temp_f}\u00b0F`} and Weather is{" "}
-				{weatherCondition}
-			</h4>
-		</>
+			</h3>
+			<Card style={{ width: "18rem", height: "auto" }}>
+				<Card.Header>{`${formattedDate} ${tz}`}</Card.Header>
+				<Card.Img src={weatherIcon} alt={weatherCondition} />
+				<Card.Text>
+					Current temperate is{" "}
+					{isCelcius ? `${temp_c}\u00b0C` : `${temp_f}\u00b0F`} and Weather is{" "}
+					{weatherCondition}
+				</Card.Text>
+			</Card>
+		</div>
 	);
 }
 

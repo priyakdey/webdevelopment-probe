@@ -1,3 +1,5 @@
+import Card from "react-bootstrap/Card";
+
 function WeatherCard({
 	isCelcius,
 	date,
@@ -11,23 +13,25 @@ function WeatherCard({
 	weatherIcon,
 }) {
 	return (
-		<div className="WeatherCard">
-			<h4>Date: {date}</h4>
-			<h4>
-				Max temperature:{" "}
-				{isCelcius ? `${maxtemp_c}\u00b0C` : `${maxtemp_f}\u00b0F`}
-			</h4>
-			<h4>
-				Min temperature:{" "}
-				{isCelcius ? `${mintemp_c}\u00b0C` : `${mintemp_f}\u00b0F`}
-			</h4>
-			<h4>
-				Avg temperature:{" "}
-				{isCelcius ? `${avgtemp_c}\u00b0C` : `${avgtemp_f}\u00b0F`}
-			</h4>
-			<img src={weatherIcon} alt={weatherCondition} />
-			<h4>Weather would be {weatherCondition}</h4>
-		</div>
+		<>
+			<Card style={{ width: "18rem" }}>
+				<Card.Header>{date}</Card.Header>
+				<Card.Text>
+					Max temperature:{" "}
+					{isCelcius ? `${maxtemp_c}\u00b0C` : `${maxtemp_f}\u00b0F`}
+				</Card.Text>
+				<Card.Text>
+					Min temperature:{" "}
+					{isCelcius ? `${mintemp_c}\u00b0C` : `${mintemp_f}\u00b0F`}
+				</Card.Text>
+				<Card.Text>
+					Avg temperature:{" "}
+					{isCelcius ? `${avgtemp_c}\u00b0C` : `${avgtemp_f}\u00b0F`}
+				</Card.Text>
+				<Card.Img src={weatherIcon} alt={weatherCondition} />
+				<Card.Text>Weather would be {weatherCondition}</Card.Text>
+			</Card>
+		</>
 	);
 }
 

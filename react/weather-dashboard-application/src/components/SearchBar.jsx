@@ -1,24 +1,41 @@
-import { useRef } from "react";
+import { useState } from "react";
+import "./searchbar.css";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 
 function SearchBar({ onClick }) {
-	const search = useRef();
+	const [cityName, setCityName] = useState("");
+
+	function handleInput(event) {
+		setCityName(() => event.target.value);
+	}
 
 	return (
+		// TODO: Make this thing justify
 		<>
-			<label htmlFor="search">Enter City Name</label>
-			<input
-				id="search"
-				ref={search}
-				type="text"
-				placeholder="Enter city name..."
-			/>
-			<button
-				onClick={(event) => {
-					onClick(event, search.current.value);
-				}}
+			<Form.Group as={Row} className="mb-3" controlId="textInput">
+				<Form.Label htmlFor="search" column sm="2">
+					Enter City Name
+				</Form.Label>
+				<Col sm="5">
+					<Form.Control
+						id="search"
+						type="text"
+						placeholder="Bangalore"
+						onChange={handleInput}
+					/>
+				</Col>
+			</Form.Group>
+			<Button
+				variant="primary"
+				disabled={cityName.length === 0}
+				onClick={(event) => onClick(event, cityName)}
 			>
 				Search
-			</button>
+			</Button>
 		</>
 	);
 }

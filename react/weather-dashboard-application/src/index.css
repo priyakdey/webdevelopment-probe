@@ -1,4 +1,18 @@
-html, body {
-  margin: 0;
-  padding: 0;
-} 
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #03a1fc;
+}
+
+.App {
+	display: flex;
+	flex-direction: column;
+}
+
+.App__header {
+	height: 100px;
+	align-content: center;
+}

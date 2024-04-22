@@ -3,6 +3,7 @@ import WeatherDisplay from "./components/WeatherDisplay";
 import WeatherCard from "./components/WeatherCard";
 import "./App.css";
 import { useEffect, useState } from "react";
+import Spinner from "react-bootstrap/Spinner";
 
 const BASE_URL = "http://api.weatherapi.com/v1/forecast.json";
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -43,12 +44,16 @@ function App() {
 
 	return (
 		<div className="App">
-			<header>
+			<header className="App__header">
 				<h1>Weather Dashboard Application</h1>
 			</header>
 			<main>
 				<SearchBar onClick={handleSearch} />
-				{!!isLoading && <p>Loading data....</p>}
+				{!!isLoading && (
+					<Spinner animation="border" role="status">
+						<span className="visually-hidden">Loading...</span>
+					</Spinner>
+				)}
 				{!!error && (
 					<p style={{ color: "red" }}>
 						ERROR: Could not fetch data for {cityName}.
@@ -69,26 +74,29 @@ function App() {
 							weatherIcon={data.current.condition.icon}
 						/>
 						<div className="App__forecast">
-							{data.forecast.forecastday.map((forecast) => {
-								{
-									JSON.stringify(forecast);
-								}
-								return (
-									<WeatherCard
-										key={forecast.date}
-										isCelcius={isCelcius}
-										date={forecast.date}
-										maxtemp_c={forecast.day.maxtemp_c}
-										maxtemp_f={forecast.day.maxtemp_f}
-										mintemp_c={forecast.day.mintemp_c}
-										mintemp_f={forecast.day.mintemp_f}
-										avgtemp_c={forecast.day.avgtemp_c}
-										avgtemp_f={forecast.day.avgtemp_f}
-										weatherCondition={forecast.day.condition.text}
-										weatherIcon={forecast.day.condition.icon}
-									/>
-								);
-							})}
+							<h3>Future Forecast</h3>
+							<div className="WeatherCard">
+								{data.forecast.forecastday.map((forecast) => {
+									{
+										JSON.stringify(forecast);
+									}
+									return (
+										<WeatherCard
+											key={forecast.date}
+											isCelcius={isCelcius}
+											date={forecast.date}
+											maxtemp_c={forecast.day.maxtemp_c}
+											maxtemp_f={forecast.day.maxtemp_f}
+											mintemp_c={forecast.day.mintemp_c}
+											mintemp_f={forecast.day.mintemp_f}
+											avgtemp_c={forecast.day.avgtemp_c}
+											avgtemp_f={forecast.day.avgtemp_f}
+											weatherCondition={forecast.day.condition.text}
+											weatherIcon={forecast.day.condition.icon}
+										/>
+									);
+								})}
+							</div>
 						</div>
 						<button onClick={() => setIsCelcius((prev) => !prev)}>
 							Show temperate in {isCelcius ? "Fahrenheit" : "Celcius"}
