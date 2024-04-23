@@ -2,24 +2,29 @@ import { useState } from "react";
 
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
-import { generateMockInCompleteTasks } from "../utils/faker";
+import {
+	generateMockIncompleteTasks,
+	generateMockCompleteTasks,
+} from "../utils/faker";
 
 import "./Main.css";
 
-const mockIncompleteTasks = generateMockInCompleteTasks();
+const mockIncompleteTasks = generateMockIncompleteTasks();
+const mockCompleteTasks = generateMockCompleteTasks();
 
 function Main() {
-	const [inCompleteTasks, setInCompleteTasks] = useState(mockIncompleteTasks);
+	const [incompleteTasks, setIncompleteTasks] = useState(mockIncompleteTasks);
+	const [completeTasks, setCompleteTasks] = useState(mockCompleteTasks);
 
 	{
-		console.log(inCompleteTasks);
+		console.log(incompleteTasks);
 	}
 
 	return (
 		<main className="Main">
 			<div className="task-list-container">
-				<TaskList tasks={inCompleteTasks} />
-				<TaskList tasks={[]} />
+				<TaskList headerName="Incomplete Tasks" tasks={incompleteTasks} />
+				<TaskList headerName="Completed Tasks" tasks={completeTasks} />
 			</div>
 			<TaskForm />
 		</main>

@@ -23,6 +23,15 @@
 	text-align: left;
 }
 
+/* .content h3 {
+	max-height: 20%;
+	bac
+}
+
+.content p {
+	max-height: 20%;
+} */
+
 .control {
 	text-align: right;
 	display: flex;
