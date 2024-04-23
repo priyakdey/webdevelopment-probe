@@ -2,14 +2,15 @@ import TaskItem from "./TaskItem";
 
 import "./TaskList.css";
 
-function TaskList() {
+function TaskList({ tasks }) {
 	return (
 		<div className="TaskList">
+			{tasks.length === 0 && <p>No tasks to display</p>}
+
 			<ul>
-				<TaskItem />
-				<TaskItem />
-				<TaskItem />
-				<TaskItem />
+				{tasks.map((task) => (
+					<TaskItem key={task.id} task={task} />
+				))}
 			</ul>
 		</div>
 	);

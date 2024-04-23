@@ -1,0 +1,29 @@
+.TaskItem {
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 2px;
+	padding: 2px;
+	min-width: 100%;
+	border: 1px solid slategray;
+	border-radius: 5px;
+	/* TODO: setup the height of the boxes */
+	max-height: 5rem;
+	min-height: 5rem;
+	font-size: medium;
+	font-style: normal;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	width: 70%;
+	padding-left: 25px;
+	text-align: left;
+}
+
+.control {
+	text-align: right;
+	display: flex;
+}
