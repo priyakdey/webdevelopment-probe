@@ -4,10 +4,11 @@
 This is a probe into web development. Everything is research and study.
 
 ## React
-    - [github-profile-viewer](./react/github-profile-viewer)
-    - [star-rating-system](./react/star-rating-system)
-    - [task-manager](./react/task-manager)
-    - [weather-dashboard-application](./react/weather-dashboard-application)
+    
+- [github-profile-viewer](./react/github-profile-viewer)
+- [star-rating-system](./react/star-rating-system)
+- [task-manager](./react/task-manager)
+- [weather-dashboard-application](./react/weather-dashboard-application)
 
 
 ## LICENSE
