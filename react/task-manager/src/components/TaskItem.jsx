@@ -3,6 +3,8 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 
 import "./TaskItem.css";
+import { useContext } from "react";
+import { HandleCompleteTaskContext } from "./Main";
 
 function styleListItem(color, disabled) {
 	return {
@@ -15,6 +17,10 @@ function styleListItem(color, disabled) {
 }
 
 function TaskItem({ task }) {
+	const { handleCompleteTask, handleDeleteTask } = useContext(
+		HandleCompleteTaskContext
+	);
+
 	const disabled = task.status === "complete";
 
 	return (
@@ -26,13 +32,6 @@ function TaskItem({ task }) {
 
 			<div className="control">
 				<MdEdit
-					// style={{
-					// 	color: "#3970ff",
-					// 	margin: "2px",
-					// 	padding: "2px",
-					// 	pointerEvents: disabled ? "none" : "auto",
-					// 	border: "1px ridge gray",
-					// }}
 					style={{ ...styleListItem("#3970ff", disabled) }}
 					size={20}
 					onClick={() => console.log("EDIT", JSON.stringify(task), disabled)}
@@ -40,14 +39,12 @@ function TaskItem({ task }) {
 				<RiDeleteBin6Fill
 					style={styleListItem("#ff0066", disabled)}
 					size={20}
-					onClick={() => console.log("DELETE", JSON.stringify(task), disabled)}
+					onClick={(_) => handleDeleteTask(task.id)}
 				/>
 				<IoIosCheckmarkCircle
 					style={styleListItem("#13bf58", disabled)}
 					size={20}
-					onClick={() =>
-						console.log("MARK COMPLETE", JSON.stringify(task), disabled)
-					}
+					onClick={(_) => handleCompleteTask(task.id)}
 				/>
 			</div>
 		</div>

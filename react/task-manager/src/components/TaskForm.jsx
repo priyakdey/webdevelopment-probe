@@ -10,7 +10,6 @@ function TaskForm({ handleAddTask }) {
 
 	function handleInputChange(event, callback) {
 		event.preventDefault();
-		console.log(event.target.value);
 		callback.call(null, event.target.value);
 	}
 
