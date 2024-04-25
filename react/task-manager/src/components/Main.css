@@ -4,3 +4,10 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.Main__TaskList {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: center;
+}
