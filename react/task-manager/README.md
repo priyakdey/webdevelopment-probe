@@ -76,8 +76,8 @@ export default App;
 ```
 ## TODO:
 
-- [ ] Add Task Component
-- [ ] Delete Task Handler
+- [X] Add Task Component
+- [X] Delete Task Handler
 - [ ] Edit Task Handler
 - [ ] Think of displaying priority
 - [ ] Filter And Sort Component
