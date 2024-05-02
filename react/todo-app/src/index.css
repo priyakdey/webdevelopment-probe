@@ -123,13 +123,15 @@
 }
 
 .Control {
+	background-color: #ffffff;
+	border: none;
 	transition: transform 0.1s ease-in-out;
 }
 
 .Control:focus,
 .Control:hover {
 	cursor: pointer;
-	transform: scale(1.2);
+	transform: scale(1.25);
 }
 
 .Footer {

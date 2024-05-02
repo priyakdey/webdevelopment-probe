@@ -52,7 +52,7 @@ React, Responsive style.
 - [X] Components for Display, Input, Task
 - [X] Display List of task
 - [X] Create New Task
-- [ ] Delete a task
-- [ ] Mark a task completed
+- [X] Delete a task
+- [X] Mark a task completed
 - [ ] Edit Task
 - [ ] Filter Task

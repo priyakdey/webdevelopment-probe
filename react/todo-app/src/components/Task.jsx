@@ -2,22 +2,55 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 
-function Task({ task, handleDelete }) {
+import { TaskStatus } from "../types/task";
+
+function Task(props) {
+	const task = props.task;
+	const isComplete = task.status === TaskStatus.COMPLETE;
+
 	return (
 		<li className="Task">
-			<div>{task.title}</div>
-			<div className="Controls">
-				<span className="Control">
-					<FaRegEdit fill="#181818" />
-				</span>
-				<span className="Control">
-					<MdDeleteForever fill="red" onClick={(_) => handleDelete(task.id)} />
-				</span>
-				<span className="Control">
-					<IoIosCheckmarkCircle fill="green" />
-				</span>
+			<div
+				style={{
+					textDecoration: isComplete ? "line-through" : "",
+				}}
+			>
+				{task.title}
 			</div>
+			<Controls {...props} />
 		</li>
+	);
+}
+
+function Controls({ task, handleEdit, handleDelete, handleComplete }) {
+	const isComplete = task.status === TaskStatus.COMPLETE;
+
+	return (
+		<div className="Controls">
+			<button
+				onClick={() => handleEdit(task.id)}
+				aria-label="Edit Task"
+				className="Control"
+				disabled={isComplete}
+			>
+				<FaRegEdit fill={!isComplete ? "#181818" : "gray"} />
+			</button>
+			<button
+				onClick={() => handleDelete(task.id)}
+				aria-label="Delete task"
+				className="Control"
+			>
+				<MdDeleteForever fill="red" />
+			</button>
+			<button
+				onClick={() => handleComplete(task.id)}
+				aria-label="Complete task"
+				className="Control"
+				disabled={isComplete}
+			>
+				<IoIosCheckmarkCircle fill={!isComplete ? "green" : "gray"} />
+			</button>
+		</div>
 	);
 }
 
