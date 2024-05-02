@@ -50,7 +50,7 @@ React, Responsive style.
 
 - [X] Scafold
 - [X] Components for Display, Input, Task
-- [ ] Display List of task
+- [X] Display List of task
 - [X] Create New Task
 - [ ] Delete a task
 - [ ] Mark a task completed

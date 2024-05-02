@@ -2,14 +2,20 @@ import { FaRegEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 
-function Task({ task }) {
+function Task({ task, handleDelete }) {
 	return (
 		<li className="Task">
 			<div>{task.title}</div>
 			<div className="Controls">
-				<FaRegEdit fill="#181818" />
-				<MdDeleteForever fill="red" />
-				<IoIosCheckmarkCircle fill="green" />
+				<span className="Control">
+					<FaRegEdit fill="#181818" />
+				</span>
+				<span className="Control">
+					<MdDeleteForever fill="red" onClick={(_) => handleDelete(task.id)} />
+				</span>
+				<span className="Control">
+					<IoIosCheckmarkCircle fill="green" />
+				</span>
 			</div>
 		</li>
 	);

@@ -13,11 +13,18 @@ function Main() {
 		setTasks((prev) => [newTask, ...prev]);
 	}
 
+	function deleteTask(id) {
+		const idx = tasks.findIndex((task) => task.id === id);
+		setTasks((prev) => [...prev.slice(0, idx), ...prev.slice(idx + 1)]);
+	}
+
 	return (
 		<div className="Main">
 			<TaskForm handleAddNewTask={addTask} />
-			{tasks.length === 0 && <p>No Pending Tasks</p>}
-			{tasks.length !== 0 && <TaskList tasks={tasks} />}
+			{tasks.length === 0 && <p>No Tasks Added</p>}
+			{tasks.length !== 0 && (
+				<TaskList tasks={tasks} handlerFn={{ deleteTask }} />
+			)}
 		</div>
 	);
 }

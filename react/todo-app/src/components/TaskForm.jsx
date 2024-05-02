@@ -15,7 +15,6 @@ function TaskForm({ handleAddNewTask }) {
 
 	function handleSubmit(event) {
 		event.preventDefault();
-		console.log(taskTitle);
 		handleAddNewTask(taskTitle);
 		setTaskTitle("");
 	}

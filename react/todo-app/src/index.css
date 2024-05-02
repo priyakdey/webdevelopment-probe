@@ -117,8 +117,19 @@
 .Controls {
 	display: flex;
 	flex: 0 0 30%;
+	align-items: center;
 	justify-content: flex-end;
 	gap: 10px;
+}
+
+.Control {
+	transition: transform 0.1s ease-in-out;
+}
+
+.Control:focus,
+.Control:hover {
+	cursor: pointer;
+	transform: scale(1.2);
 }
 
 .Footer {
