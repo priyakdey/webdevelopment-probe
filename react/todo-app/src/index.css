@@ -54,7 +54,7 @@
 .TaskForm button {
 	border: 1px solid #acacac;
 	border-radius: 10px;
-	width: calc(0.5 * 100%);
+	width: 100px;
 	height: 40px;
 	box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px;
 }
@@ -72,7 +72,7 @@
 	height: 30px;
 	width: 100%;
 	border: 1px solid #cdcdcd;
-	border-radius: 2px none #ffffff;
+	border-radius: 10px;
 	box-shadow: rgba(0, 0, 0, 0.15) 5px 5px 5px;
 	font-style: inherit;
 	padding: 5px;
@@ -83,6 +83,42 @@
 	flex-direction: row;
 	column-gap: 20px;
 	width: 100%;
+	justify-content: center;
+	align-items: center;
+	margin: 10px;
+}
+
+.TaskList {
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.Task {
+	list-style: none;
+	font-size: large;
+	display: flex;
+	flex-direction: row;
+	width: 500px;
+	height: 20px;
+	padding: 10px 10px;
+	align-items: center;
+	border: 1px solid #cdcdcd;
+	box-shadow: rgba(0, 0, 0, 0.15) 3px 3px 3px;
+	border-radius: 10px;
+}
+
+.Task div:first-child {
+	flex: 0 0 70%;
+}
+
+.Controls {
+	display: flex;
+	flex: 0 0 30%;
+	justify-content: flex-end;
+	gap: 10px;
 }
 
 .Footer {

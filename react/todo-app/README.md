@@ -49,9 +49,9 @@ React, Responsive style.
 ### TODO:
 
 - [X] Scafold
-- [ ] Components for Display, Input, Task
+- [X] Components for Display, Input, Task
 - [ ] Display List of task
-- [ ] Create New Task
+- [X] Create New Task
 - [ ] Delete a task
 - [ ] Mark a task completed
 - [ ] Edit Task

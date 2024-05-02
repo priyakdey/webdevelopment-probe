@@ -17,7 +17,7 @@ function Main() {
 		<div className="Main">
 			<TaskForm handleAddNewTask={addTask} />
 			{tasks.length === 0 && <p>No Pending Tasks</p>}
-			{tasks.length !== 0 && <TaskList />}
+			{tasks.length !== 0 && <TaskList tasks={tasks} />}
 		</div>
 	);
 }

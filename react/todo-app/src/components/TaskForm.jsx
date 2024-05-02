@@ -17,7 +17,6 @@ function TaskForm({ handleAddNewTask }) {
 		event.preventDefault();
 		console.log(taskTitle);
 		handleAddNewTask(taskTitle);
-		setIsDisplay(toggleDisplay);
 		setTaskTitle("");
 	}
 
@@ -33,12 +32,17 @@ function TaskForm({ handleAddNewTask }) {
 			{isDisplay && (
 				<form className="NewTaskForm" onSubmit={handleSubmit}>
 					<label htmlFor="taskTitle">Task Name</label>
-					<input id="taskTitle" type="text" onChange={handleInput} />
+					<input
+						id="taskTitle"
+						type="text"
+						value={taskTitle}
+						onChange={handleInput}
+					/>
 					<div className="container">
 						<button type="submit" disabled={taskTitle.length === 0}>
 							Add
 						</button>
-						<button onClick={() => toggleDisplay()}>Close</button>
+						<button onClick={handleClick}>Close</button>
 					</div>
 				</form>
 			)}
